@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/GeanAlexandre/geanalexandre/issues"
   },
-  "homepage": "https://github.com/GeanAlexandre/geanalexandre#readme"
+  "homepage": "https://github.com/GeanAlexandre/geanalexandre#readme",
+  "devDependencies": {
+    "angularjs": "0.0.1",
+    "aspnet-webpack": "^2.0.1",
+    "webpack-hot-middleware": "^2.18.2"
+  }
 }
