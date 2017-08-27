@@ -9,8 +9,9 @@ let getPathFromRoot = path => Path.join(__dirname, path)
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
     entry: {
-        'app': getPathFromRoot('app/main.ts'),
-        'vendor': getPathFromRoot('app/vendor.ts')
+        'polyfills': getPathFromRoot('app/polyfills.ts'),
+        'vendor': getPathFromRoot('app/vendor.ts'),
+        'app': getPathFromRoot('app/main.ts')
     },
     output: {
         path: getPathFromRoot('wwwroot'),
@@ -25,8 +26,17 @@ module.exports = {
         loaders:
         [
             {
-                test: /\.tsx?$/,
-                loader: 'ts-loader'
+                test: /\.ts$/,
+                loaders: [
+                    {
+                        loader: 'awesome-typescript-loader',
+                        options: { configFileName: 'tsconfig.json' }
+                    }, 'angular2-template-loader'
+                ]
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
             },
             {
                 test: /\.css$/,
