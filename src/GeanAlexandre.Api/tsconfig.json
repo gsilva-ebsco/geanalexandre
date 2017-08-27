@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "sourceMap": true,
+        "sourceRoot": "app",
+        "outDir": "wwwroot"
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
