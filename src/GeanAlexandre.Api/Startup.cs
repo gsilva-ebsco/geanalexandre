@@ -8,19 +8,21 @@ namespace GeanAlexandre.Api
 {
     public class Startup
     {
+        private const string CorsPolicyName = "AllowAllOrigins";
         public void ConfigureServices(IServiceCollection services)
         {
 
             services.AddCors(options =>
             {
-                options.AddPolicy("AllowAllOrigins",
+                options.AddPolicy(CorsPolicyName,
                     builder =>
                     {
                         builder
                             .AllowAnyOrigin()
                             .AllowAnyHeader()
                             .AllowAnyMethod();
-                    });
+                    }
+                );
             });
 
             services.AddMvc();
@@ -33,7 +35,8 @@ namespace GeanAlexandre.Api
                 app.UseDeveloperExceptionPage();
                 app.UseWebpackDevMiddleware();
             }
-            app.UseCors("AllowAllOrigins");
+
+            app.UseCors(CorsPolicyName);
             app.UseDefaultFiles();
             app.UseStaticFiles();
         }

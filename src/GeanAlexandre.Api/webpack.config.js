@@ -46,13 +46,49 @@ module.exports = {
                 })
             },
             {
-                test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+                test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: "url-loader?limit=10000&mimetype=application/font-woff",
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/',    // where the fonts will go
+                    }
+                }]
+            }, {
+                test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: "url-loader?limit=10000&mimetype=application/font-woff",
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/',    // where the fonts will go
+                    }
+                }]
+            }, {
+                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: "url-loader?limit=10000&mimetype=application/octet-stream",
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/',    // where the fonts will go
+                    }
+                }]
+            }, {
+                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
                 use: [{
                     loader: 'file-loader',
                     options: {
                         name: '[name].[ext]',
                         outputPath: 'fonts/',    // where the fonts will go
-                        publicPath: '../'       // override the default path
+                    }
+                }]
+            },
+            {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                use: [{
+                    loader: "url-loader?limit=10000&mimetype=image/svg+xml",
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'fonts/',    // where the fonts will go
                     }
                 }]
             },
@@ -64,7 +100,6 @@ module.exports = {
                         options: {
                             name: '[name].[ext]',
                             outputPath: 'img/',    // where the fonts will go
-                            publicPath: '../'       // override the default path
                         }
                     }
                 ]

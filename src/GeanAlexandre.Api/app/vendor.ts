@@ -1,15 +1,15 @@
-// Angular
-import '@angular/platform-browser';
-import '@angular/platform-browser-dynamic';
-import '@angular/core';
-import '@angular/common';
-import '@angular/http';
-import '@angular/router';
+// ANGULAR
+import '@angular/platform-browser'
+import '@angular/platform-browser-dynamic'
+import '@angular/core'
+import '@angular/common'
+import '@angular/http'
+import '@angular/router'
+import 'rxjs'
 
-// RxJS
-import 'rxjs';
+//STYLES
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'font-awesome/css/font-awesome.css'
 
-
-//Template from wrapbootstrap, it`s not a open source code, please dont copy that
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './css/main.css'
+//DONT COPY THIS TEMPLATE, IT`s NOT OPEN SOURCE CODE
+import './css/main.css';
