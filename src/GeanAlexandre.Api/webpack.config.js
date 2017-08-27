@@ -1,10 +1,12 @@
-const Path = require('path')
-const Webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const Path = require('path');
+const Webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-let getPathFromRoot = path => Path.join(__dirname, path)
+var getPathFromRoot = function (path) {
+    return Path.join(__dirname, path)
+};
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
@@ -17,20 +19,19 @@ module.exports = {
         path: getPathFromRoot('wwwroot'),
         filename: '[name].bundle.js',
         chunkFilename: '[id].chunk.js',
-        publicPath: '/',
+        publicPath: '/'
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js'] // note if using webpack 1 you'd also need a '' in the array as well
     },
     module: {
-        loaders:
-        [
+        loaders: [
             {
                 test: /\.ts$/,
                 loaders: [
                     {
                         loader: 'awesome-typescript-loader',
-                        options: { configFileName: 'tsconfig.json' }
+                        options: {configFileName: 'tsconfig.json'}
                     }, 'angular2-template-loader'
                 ]
             },
@@ -51,7 +52,7 @@ module.exports = {
                     loader: "url-loader?limit=10000&mimetype=application/font-woff",
                     options: {
                         name: '[name].[ext]',
-                        outputPath: 'fonts/',    // where the fonts will go
+                        outputPath: 'fonts/'
                     }
                 }]
             }, {
@@ -60,7 +61,7 @@ module.exports = {
                     loader: "url-loader?limit=10000&mimetype=application/font-woff",
                     options: {
                         name: '[name].[ext]',
-                        outputPath: 'fonts/',    // where the fonts will go
+                        outputPath: 'fonts/'
                     }
                 }]
             }, {
@@ -69,7 +70,7 @@ module.exports = {
                     loader: "url-loader?limit=10000&mimetype=application/octet-stream",
                     options: {
                         name: '[name].[ext]',
-                        outputPath: 'fonts/',    // where the fonts will go
+                        outputPath: 'fonts/'
                     }
                 }]
             }, {
@@ -78,7 +79,7 @@ module.exports = {
                     loader: 'file-loader',
                     options: {
                         name: '[name].[ext]',
-                        outputPath: 'fonts/',    // where the fonts will go
+                        outputPath: 'fonts/'
                     }
                 }]
             },
@@ -88,7 +89,7 @@ module.exports = {
                     loader: "url-loader?limit=10000&mimetype=image/svg+xml",
                     options: {
                         name: '[name].[ext]',
-                        outputPath: 'fonts/',    // where the fonts will go
+                        outputPath: 'fonts/'
                     }
                 }]
             },
@@ -99,7 +100,7 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].[ext]',
-                            outputPath: 'img/',    // where the fonts will go
+                            outputPath: 'img/'
                         }
                     }
                 ]
@@ -119,4 +120,4 @@ module.exports = {
         new ExtractTextPlugin("css/styles.css"),
         new CleanWebpackPlugin('wwwroot')
     ]
-}
+};

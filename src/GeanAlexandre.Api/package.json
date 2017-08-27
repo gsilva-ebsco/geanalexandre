@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "My resume and possible blog",
   "scripts": {
-    "precompile": "webpack --progress --profile --bail"
+    "precompile": "npm install && webpack --progress --profile --bail"
   },
   "repository": {
     "type": "git",
