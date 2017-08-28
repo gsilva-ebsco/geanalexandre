@@ -13,7 +13,7 @@ module.exports = {
     entry: {
         'polyfills': getPathFromRoot('app/polyfills.ts'),
         'vendor': getPathFromRoot('app/vendor.ts'),
-        'app': getPathFromRoot('app/main.ts')
+        'main': getPathFromRoot('app/main.ts')
     },
     output: {
         path: getPathFromRoot('wwwroot'),
@@ -118,6 +118,11 @@ module.exports = {
             template: getPathFromRoot('app/index.html')
         }),
         new ExtractTextPlugin("css/styles.css"),
-        new CleanWebpackPlugin('wwwroot')
+        new CleanWebpackPlugin('wwwroot'),
+        new Webpack.ContextReplacementPlugin(
+            /angular(\\|\/)core(\\|\/)@angular/, /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+            getPathFromRoot('app'),
+            {}
+        )
     ]
 };

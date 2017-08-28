@@ -33,7 +33,8 @@ namespace GeanAlexandre.Api
                 app.UseDeveloperExceptionPage();
                 app.UseWebpackDevMiddleware();
             }
-
+            
+            app.UseMvcWithDefaultRoute();
             app.UseCors(CorsPolicyName);
             app.UseDefaultFiles();
             app.UseStaticFiles();
