@@ -5,6 +5,6 @@ export class ApiSettings {
     resume: string;
 
     constructor() {
-        this.resume = "http://localhost:5000/api/resume"
+        this.resume = "/api/resume"
     }
 }

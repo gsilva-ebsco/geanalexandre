@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "My resume and possible blog",
   "scripts": {
+    "release-docker": "npm run precompile && dotnet publish -c Release && docker build . -t geanalexandre",
     "precompile": "npm install && webpack --progress --profile --bail"
   },
   "repository": {
