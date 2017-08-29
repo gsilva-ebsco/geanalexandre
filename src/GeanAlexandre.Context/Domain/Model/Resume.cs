@@ -1,10 +1,17 @@
 using System;
 using System.Collections.Generic;
+using GeanAlexandre.Context.Domain.Model.Builder;
 
 namespace GeanAlexandre.Context.Domain.Model
 {
     public class Resume
     {
+
+        public Resume(IResumeBuilder builder)
+        {
+            
+        }
+        
         public Guid Id { get; set; }
         public ResumeLanguage ResumeLanguage { get; set; }
         

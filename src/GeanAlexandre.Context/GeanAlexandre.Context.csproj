@@ -3,6 +3,6 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Domain\Repository" />
+    <PackageReference Include="MongoDB.Driver" Version="2.4.4" />
   </ItemGroup>
 </Project>

@@ -1,12 +1,16 @@
-using System;
 using System.Collections.Generic;
+using GeanAlexandre.Context.Domain.Model.Builder;
 
 namespace GeanAlexandre.Context.Domain.Model
 {
     public class User
     {
-        public Guid Id { get; set; }
-        public string UserName { get; set; }
-        public IEnumerable<Resume> Rusumes { get; set; }
+        public string UserName { get; }
+        public IDictionary<ResumeLanguage, Resume> Rusumes { get; private set; }
+
+        public User(IUserBuilder builder)
+        {
+            UserName = builder.UserName;
+        }
     }
 }
