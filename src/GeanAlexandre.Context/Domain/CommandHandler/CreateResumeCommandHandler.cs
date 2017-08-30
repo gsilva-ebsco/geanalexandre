@@ -5,7 +5,7 @@ using GeanAlexandre.Context.Domain.Uow;
 
 namespace GeanAlexandre.Context.Domain.CommandHandler
 {
-    public class CreateResumeCommandHandler : ICommandHandler<CreateResumeCommand>
+    public class CreateResumeCommandHandler : ICreateResumeCommandHandler
     {
         private readonly IUow _uow;
 

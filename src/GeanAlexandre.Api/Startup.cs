@@ -1,4 +1,5 @@
 ﻿using GeanAlexandre.Api.Config;
+using GeanAlexandre.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -8,20 +9,23 @@ namespace GeanAlexandre.Api
 {
     public class Startup
     {
+        private readonly IConfiguration _configuration;
+
         public Startup(IHostingEnvironment env)
         {
-            var builder = new ConfigurationBuilder()
+            _configuration = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", true, true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
-                .AddEnvironmentVariables();
-            builder.Build();
+                .AddEnvironmentVariables()
+                .Build();
         }
 
 
         public void ConfigureServices(IServiceCollection services)
         {
             services.AllowAllCors();
+            services.ConfigureGeanAlexandreContext(Settings.Configure(_configuration));
             services.AddMvc();
         }
 

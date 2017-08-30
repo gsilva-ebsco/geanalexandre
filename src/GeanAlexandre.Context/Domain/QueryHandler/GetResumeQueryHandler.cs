@@ -5,7 +5,7 @@ using GeanAlexandre.Context.Domain.Repository;
 
 namespace GeanAlexandre.Context.Domain.QueryHandler
 {
-    public class GetResumeQueryHandler : IQueryHandler<GetResumeQuery, Resume>
+    public class GetResumeQueryHandler : IGetResumeQueryHandler
     {
         private readonly IResumeRepository _resumeRepository;
 

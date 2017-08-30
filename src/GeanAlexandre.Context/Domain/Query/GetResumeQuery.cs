@@ -2,6 +2,16 @@
 {
     public class GetResumeQuery : IQuery
     {
-        public string UserName { get; set; }
+        public GetResumeQuery(string userName)
+        {
+            UserName = userName;
+        }
+
+        public string UserName { get; }
+
+        public static GetResumeQuery CreateCommand(string userName)
+        {
+            return new GetResumeQuery(userName);
+        }
     }
 }
