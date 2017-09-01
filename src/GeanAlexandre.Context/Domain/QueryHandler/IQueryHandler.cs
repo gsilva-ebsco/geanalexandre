@@ -6,6 +6,6 @@ namespace GeanAlexandre.Context.Domain.QueryHandler
     public interface IQueryHandler<in TQuery, TResult>
         where TQuery : IQuery
     {
-        Task<TResult> Execute(TQuery command);
+        Task<TResult> ExecuteAsync(TQuery command);
     }
 }

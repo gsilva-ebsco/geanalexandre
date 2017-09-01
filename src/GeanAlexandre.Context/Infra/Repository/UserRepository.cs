@@ -6,19 +6,19 @@ using IMongoDatabase = GeanAlexandre.Context.Infra.Database.IMongoDatabase;
 
 namespace GeanAlexandre.Context.Infra.Repository
 {
-    public class ResumeRepository : IResumeRepository
+    public class UserRepository : IUserRepository
     {
         private readonly IMongoDatabase _database;
 
-        public ResumeRepository(IMongoDatabase database)
+        public UserRepository(IMongoDatabase database)
         {
             _database = database;
         }
 
-        public Task<Resume> GetResumeByUserName(string userName)
+        public Task<User> GetUserNameAsync(string userName)
         {
-            var filter = Builders<Resume>.Filter.Eq("UserName", userName);
-            return _database.GetCollection<Resume>().Find(filter).FirstAsync();
+            var filter = Builders<User>.Filter.Eq("UserName", userName);
+            return _database.GetCollection<User>().Find(filter).FirstOrDefaultAsync();
         }
     }
 }

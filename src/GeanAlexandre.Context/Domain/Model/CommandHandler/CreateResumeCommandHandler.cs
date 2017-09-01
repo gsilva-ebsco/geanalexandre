@@ -14,13 +14,12 @@ namespace GeanAlexandre.Context.Domain.CommandHandler
             _uow = uow;
         }
 
-        public Task Execute(CreateResumeCommand command)
+        public async Task ExecuteAsync(CreateResumeCommand command)
         {
-            UserBuilder
+             await UserBuilder
                 .SetUserName(command.UserName)
-                .ThenBuild(user => _uow.AddAndSave(user).Wait());
-
-            return Task.CompletedTask;
+                .ThenBuild(user => user.CreateNewResume(command.Resume))
+                .ThenParse(_uow.AddAndSave);
         }
     }
 }

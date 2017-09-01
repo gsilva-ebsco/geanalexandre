@@ -39,6 +39,7 @@ namespace GeanAlexandre.Context.CrossCutting.IoC
 
         private DependencyInject ResolveDatabase()
         {
+            
             _serviceCollection.AddSingleton<IMongoDatabase, MongoDatabase>();
             return this;
         }
@@ -51,7 +52,7 @@ namespace GeanAlexandre.Context.CrossCutting.IoC
 
         private DependencyInject ResolveRepositories()
         {
-            _serviceCollection.AddScoped<IResumeRepository, ResumeRepository>();
+            _serviceCollection.AddScoped<IUserRepository, UserRepository>();
             return this;
         }
 
@@ -63,7 +64,7 @@ namespace GeanAlexandre.Context.CrossCutting.IoC
 
         private DependencyInject ResolveQueries()
         {
-            _serviceCollection.AddScoped<IGetResumeQueryHandler, GetResumeQueryHandler>();
+            _serviceCollection.AddScoped<IGetUserQueryHandler, GetUserQueryHandler>();
             return this;
         }
     }

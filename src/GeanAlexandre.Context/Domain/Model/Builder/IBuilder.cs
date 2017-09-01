@@ -2,8 +2,9 @@
 
 namespace GeanAlexandre.Context.Domain.Model.Builder
 {
-    public interface IBuilder<out TEntity>
+    public interface IBuilder<TEntity>
     {
-        void ThenBuild(Action<TEntity> action);
+        IBuilder<TEntity> ThenBuild(Func<TEntity,TEntity> action);
+        TReturn ThenParse<TReturn>(Func<TEntity, TReturn> parseFn);
     }
 }

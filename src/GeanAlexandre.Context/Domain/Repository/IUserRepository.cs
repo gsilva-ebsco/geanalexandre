@@ -3,8 +3,8 @@ using GeanAlexandre.Context.Domain.Model;
 
 namespace GeanAlexandre.Context.Domain.Repository
 {
-    public interface IResumeRepository
+    public interface IUserRepository
     {
-        Task<Resume> GetResumeByUserName(string userName);
+        Task<User> GetUserNameAsync(string userName);
     }
 }
